@@ -4,14 +4,6 @@ import {revalidatePath} from 'next/cache';
 
 const prisma = new PrismaClient();
 
-export async function main() {
-  try {
-    await prisma.$connect();
-  } catch (err) {
-    return Error('Database Connection Unsuccessull');
-  }
-}
-
 export async function getData() {
   const data = await prisma.blog.findMany();
   return data;
