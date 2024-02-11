@@ -1,10 +1,17 @@
 import React from 'react';
 
-import GetData from './GetData';
+import Todo from '../../components/shared/Todo';
+import AddTodo from '../../components/shared/AddTodo';
 
-const page = () => (
-  <div>
-    <GetData />
-  </div>
-);
+import {getData} from './actions';
+const page = async () => {
+  const data = await getData();
+
+  return (
+    <div className="m-10 border border-black bg-black px-2 text-white">
+      <AddTodo />
+      <Todo data={data} />
+    </div>
+  );
+};
 export default page;

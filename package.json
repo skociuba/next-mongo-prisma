@@ -8,6 +8,7 @@
   "dependencies": {
     "@prisma/client": "^5.9.1",
     "@reduxjs/toolkit": "^2.1.0",
+    "clsx": "^2.1.0",
     "keen-slider": "^6.8.6",
     "mongodb": "^4.8.1",
     "next": "latest",
