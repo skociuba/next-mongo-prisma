@@ -3,6 +3,8 @@ import {Inter} from 'next/font/google';
 
 import ReduxWrapper from '../provider/redux/ReduxWrapper';
 
+import Nav from './../components/Nav';
+
 import './styles/globals.css';
 
 const inter = Inter({subsets: ['latin']});
@@ -16,7 +18,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <ReduxWrapper>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          {' '}
+          <Nav />
+          {children}
+        </body>
       </html>
     </ReduxWrapper>
   );
