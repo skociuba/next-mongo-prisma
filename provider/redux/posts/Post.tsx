@@ -1,6 +1,7 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 
-export const PostsApi = createApi({
+export const PostsApiPrisma = createApi({
+  reducerPath: 'PostsApiPrisma',
   baseQuery: fetchBaseQuery({
     baseUrl: '/',
   }),
@@ -42,4 +43,4 @@ export const {
   useGetPostsQuery,
   useDeletePostMutation,
   useUpdatePostMutation,
-} = PostsApi;
+} = PostsApiPrisma;

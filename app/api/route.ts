@@ -6,7 +6,7 @@ import {connectToDatabase} from '../../lib/connectToDatabase';
 export async function GET() {
   const {mongoClient} = await connectToDatabase();
   const db = mongoClient?.db('blog');
-  const collection = db?.collection('blog');
+  const collection = db?.collection('data');
   try {
     const contacts = await collection
       ?.find({})
@@ -28,7 +28,7 @@ export async function GET() {
 export async function POST(request: Request) {
   const {mongoClient} = await connectToDatabase();
   const db = mongoClient?.db('blog');
-  const collection = db?.collection('blog');
+  const collection = db?.collection('data');
 
   const newContact = await request.json();
 
@@ -49,7 +49,7 @@ export async function POST(request: Request) {
 export async function DELETE(request: Request) {
   const {mongoClient} = await connectToDatabase();
   const db = mongoClient?.db('blog');
-  const collection = db?.collection('blog');
+  const collection = db?.collection('data');
 
   const {_id} = await request.json();
 
@@ -69,7 +69,7 @@ export async function DELETE(request: Request) {
 export async function PUT(request: Request) {
   const {mongoClient} = await connectToDatabase();
   const db = mongoClient?.db('blog');
-  const collection = db?.collection('blog');
+  const collection = db?.collection('data');
 
   const updatedPost = await request.json();
   const {_id, ...updateFields} = updatedPost;
