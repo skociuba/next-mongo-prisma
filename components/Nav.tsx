@@ -9,15 +9,11 @@ const Nav = () => (
         <li className="p-4">
           <Link href="/">Home</Link>
         </li>
-        <li className="p-4">
-          <Link href="/rtq">RTQ</Link>
-        </li>
+
         <li className="p-4">
           <Link href="/prisma">Prisma</Link>
         </li>
-        <li className="p-4">
-          <Link href="/serveraction">Server actions</Link>
-        </li>
+
         <li className="p-4">
           <Link href="/login">Login</Link>
         </li>
