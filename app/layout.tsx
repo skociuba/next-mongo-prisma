@@ -24,7 +24,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           <Provider>
             <ToasterContext />
             <Nav />
-            {children}{' '}
+            {children}
           </Provider>
         </body>
       </html>

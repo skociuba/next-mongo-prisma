@@ -15,7 +15,7 @@ export default function Login() {
 
   useEffect(() => {
     if (session?.status === 'authenticated') {
-      router.push('/dashboard');
+      router.push('/prisma');
     }
   });
 
