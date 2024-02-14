@@ -1,8 +1,7 @@
 'use server';
-import {PrismaClient} from '@prisma/client';
 import {revalidatePath} from 'next/cache';
 
-const prisma = new PrismaClient();
+import {prisma} from '../../prisma/index';
 
 export async function getData() {
   const data = await prisma.blog.findMany();

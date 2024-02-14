@@ -19,6 +19,6 @@ const config: Config = {
     borderWidth: ['responsive', 'hover', 'focus'],
     borderColor: ['responsive', 'hover', 'focus'],
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
 export default config;

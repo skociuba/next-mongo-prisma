@@ -3,6 +3,8 @@ import {Inter} from 'next/font/google';
 
 import ReduxWrapper from '../provider/redux/ReduxWrapper';
 
+import Provider from './context/AuthContext';
+import ToasterContext from './context/ToasterContext';
 import Nav from './../components/Nav';
 
 import './styles/globals.css';
@@ -19,9 +21,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <ReduxWrapper>
       <html lang="en">
         <body className={inter.className}>
-          {' '}
-          <Nav />
-          {children}
+          <Provider>
+            <ToasterContext />
+            <Nav />
+            {children}{' '}
+          </Provider>
         </body>
       </html>
     </ReduxWrapper>

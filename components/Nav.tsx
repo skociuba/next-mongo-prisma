@@ -7,7 +7,10 @@ const Nav = () => (
     <div className="m-auto flex max-w-[1240px] items-center justify-between p-4">
       <ul className="flex-column flex">
         <li className="p-4">
-          <Link href="/">RTQ</Link>
+          <Link href="/">Home</Link>
+        </li>
+        <li className="p-4">
+          <Link href="/rtq">RTQ</Link>
         </li>
         <li className="p-4">
           <Link href="/prisma">Prisma</Link>

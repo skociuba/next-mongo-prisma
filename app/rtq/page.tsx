@@ -7,7 +7,7 @@ import {
   useAddPostMutation,
   useDeletePostMutation,
   useUpdatePostMutation,
-} from '../provider/redux/query/Posts';
+} from '../../provider/redux/query/Posts';
 
 interface Props {
   _key: string;
