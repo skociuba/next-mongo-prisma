@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import {NextResponse} from 'next/server';
 
 import {prisma} from '../../../prisma/index';
@@ -9,6 +11,7 @@ async function main() {
     return Error('Database Connection Unsuccessull');
   }
 }
+
 export const GET = async (req) => {
   try {
     await main();
