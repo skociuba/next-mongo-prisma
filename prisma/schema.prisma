@@ -25,7 +25,7 @@ model User {
   hashedPassword String?
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
-  accounts Post[]
+  posts Post[]
 }
 
 model Post {

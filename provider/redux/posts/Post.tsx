@@ -8,8 +8,8 @@ export const PostsApiPrisma = createApi({
 
   endpoints: (builder) => ({
     getPosts: builder.query({
-      query: () => ({
-        url: '/api/prisma',
+      query: (userId) => ({
+        url: `/api/prisma?userId=${userId}`,
         method: 'GET',
       }),
     }),

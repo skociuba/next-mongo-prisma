@@ -9,11 +9,14 @@ async function main() {
     return Error('Database Connection Unsuccessull');
   }
 }
-
-export const GET = async () => {
+export const GET = async (req) => {
   try {
     await main();
-    const post = await prisma.post.findMany();
+    const userId = req?.nextUrl?.searchParams?.get('userId');
+    const cleanedUserId = userId?.replace(/"/g, '');
+    const post = await prisma.post.findMany({
+      where: {userId: cleanedUserId},
+    });
 
     return NextResponse.json({message: 'Success', post}, {status: 200});
   } catch (err) {
@@ -22,6 +25,7 @@ export const GET = async () => {
     await prisma.$disconnect();
   }
 };
+
 export const POST = async (request: Request) => {
   try {
     await main();

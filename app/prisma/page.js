@@ -1,6 +1,7 @@
 'use client';
 import Modal from 'react-modal';
 import {useState} from 'react';
+import {useSession} from 'next-auth/react';
 
 import {
   useGetPostsQuery,
@@ -10,14 +11,23 @@ import {
 } from '../../provider/redux/posts/Post';
 
 const Home = () => {
-  const [form, setForm] = useState({name: '', cuisine: ''});
+  const session = useSession();
+  const [form, setForm] = useState({
+    name: '',
+    cuisine: '',
+    userId: session?.data?.user?.id,
+  });
+
+  const userId = session?.data?.user?.id;
+  console.log(JSON.stringify(userId));
   const [editingPost, setEditingPost] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const {data, isError, isLoading, refetch} = useGetPostsQuery({});
+  const {data, isError, isLoading, refetch} = useGetPostsQuery(
+    JSON.stringify(userId),
+  );
   const [addPost] = useAddPostMutation();
   const [deletePost] = useDeletePostMutation();
   const [updatePost] = useUpdatePostMutation();
-
   const onChange = (e) => {
     setForm({...form, [e.target.name]: e.target.value});
   };
@@ -120,7 +130,7 @@ const Home = () => {
               </form>
             </Modal>
           )}
-          {data?.blog?.map((restaurant) => (
+          {data?.post?.map((restaurant) => (
             <div
               key={restaurant.id}
               className="mt-4 flex flex-col items-start rounded bg-gray-100 p-4 shadow-lg">
