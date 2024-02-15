@@ -14,8 +14,7 @@ const Nav = () => {
   const session = useSession();
   return (
     <nav>
-      <p>Hi {session?.data?.user?.email}</p>
-      <div className="m-auto flex max-w-[1240px] items-center justify-between p-4">
+      <div className=" flex max-w-[1240px] items-center justify-between p-4">
         <ul className="flex-column flex">
           <li className="p-4">
             <Link href="/">Home</Link>
@@ -38,6 +37,9 @@ const Nav = () => {
             </>
           )}
         </ul>
+        <div className="flex-end flex p-4">
+          {session?.data?.user ? `Hi ${session?.data?.user?.name}` : null}
+        </div>
       </div>
     </nav>
   );
